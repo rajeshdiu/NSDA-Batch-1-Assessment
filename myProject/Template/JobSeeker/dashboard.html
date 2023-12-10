@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Seeker Dashboard</title>
+    <style>
+        /* Add your custom styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h2 {
+            color: #004080;
+        }
+
+        .profile-section {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .applied-jobs-section {
+            margin-bottom: 20px;
+        }
+
+        .applied-job {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 10px;
+        }
+
+        /* Navigation Bar Styles */
+        nav {
+            background-color: #004080;
+            overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Form Styles */
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+        }
+                   
+.job-listings { 
+    margin: 2rem 0; 
+} 
+  
+.job-listings h2 { 
+    font-size: 24px; 
+    margin-bottom: 1rem; 
+    text-align: center; 
+} 
+  
+.job-listings ul { 
+    list-style: none; 
+    background-color: white;
+
+} 
+  
+.job-listings li { 
+    background-color: #fff; 
+    border: 1px solid #ccc; 
+    padding: 20px; 
+    margin-bottom: 20px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+} 
+  
+.job-listings h3 { 
+    font-size: 20px; 
+    margin-bottom: 10px; 
+} 
+  
+.job-listings p { 
+    font-size: 14px; 
+    margin-bottom: 10px; 
+} 
+  
+.job-listings a { 
+    background-color: #333; 
+    color: #fff; 
+    text-decoration: none; 
+    padding: 10px 20px; 
+    border-radius: 4px; 
+    display: inline-block; 
+    transition: background-color 0.3s; 
+} 
+  
+.job-listings a:hover { 
+    background-color: #ff6600; 
+} 
+  
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+   {% include 'JobSeeker/navbar.html' %}
+
+
+   
+   {% block content %}
+
+   
+   <h2>Welcome, {{ user.display_name }} (Job Seeker)!</h2>
+    
+   <!-- Profile Information Section -->
+   <div class="profile-section">
+       <h3>Your Profile</h3>
+       <p>Skills Set: {{ job_seeker_info.skills_set }}</p>
+       <p>Resume: <a href="{{ job_seeker_info.resume.url }}" target="_blank">View Resume</a></p>
+   </div>
+
+   <!-- Applied Jobs Section -->
+   <div class="applied-jobs-section">
+       <h3>Your Applied Jobs</h3>
+       {% for applied_job in applied_jobs %}
+           <div class="applied-job">
+               <h4>{{ applied_job.job.title }}</h4>
+               <p>Category: {{ applied_job.job.category }}</p>
+               <p>Recruiter: {{ applied_job.job.recruiter.user.display_name }}</p>
+               <p>Description: {{ applied_job.job.description }}</p>
+           </div>
+       {% endfor %}
+   </div>
+    
+   {% endblock content %}
+    
+</body>
+</html>

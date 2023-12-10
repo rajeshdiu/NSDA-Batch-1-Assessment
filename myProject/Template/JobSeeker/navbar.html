@@ -1,0 +1,14 @@
+
+{% block navbar %}
+
+<nav>
+    <a href=" {% url 'dashboard' %} ">Home</a>
+    <a href="{% url 'AppliedJobPage' %}">Applied Jobs</a>
+    <a href="{% url 'view_Job_Page' %}">View Job</a>
+    <a href="{% url 'AppliedJobPage' %}">Profile</a>
+    <a href="{% url 'logoutPage' %}">Logout</a>
+    <!-- Add more links as needed -->
+</nav>
+    
+{% endblock navbar %}
+    

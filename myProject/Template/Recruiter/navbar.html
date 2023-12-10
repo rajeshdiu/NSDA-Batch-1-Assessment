@@ -1,0 +1,11 @@
+
+{% block navbar %}
+<ul>
+    <li><a href=" {% url 'dashboard' %} ">Home</a></li>
+    <li><a href=" {% url 'add_jobPage' %} ">Add Job</a></li>
+    <li><a href=" {% url 'view_Job_Page' %} ">View Job</a></li>
+    <li style="float:right"><a class="active" href=" {% url 'logoutPage' %} ">Logout</a></li>
+    <li style="float:right"><a class="active" href="">Profile</a></li>
+  </ul>
+{% endblock navbar %}
+    

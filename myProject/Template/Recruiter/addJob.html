@@ -1,0 +1,43 @@
+{% extends 'Recruiter/dashboard.html' %}
+
+
+
+{% block content %}
+
+
+
+    <!-- Job Posting Section -->
+    <div class="job-posting-section">
+       
+        {% for job_posting in job_postings %}
+            <div class="job-posting">
+                <h4>{{ job_posting.title }}</h4>
+                <p>Category: {{ job_posting.category }}</p>
+                <p>Openings: {{ job_posting.openings }}</p>
+                <p>Description: {{ job_posting.description }}</p>
+                <p>Skills Required: {{ job_posting.skills_required }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- Add Job Form Section -->
+    <div>
+        <form method="post" action="{% url 'add_jobPage' %}">
+            {% csrf_token %}
+            <label for="title">Job Title:</label>
+            <input type="text" name="title" required>
+            <label for="category">Category:</label>
+            <input type="text" name="category" required>
+            <label for="openings">Number of Openings:</label>
+            <input type="number" name="openings" required>
+            <label for="description">Job Description:</label>
+            <textarea name="description" rows="4" required></textarea>
+            <label for="skills_required">Skills Required:</label>
+            <input type="text" name="skills_required" required>
+            <input type="submit" value="Post Job">
+        </form>
+    </div>
+    
+{% endblock content %}
+    
+    

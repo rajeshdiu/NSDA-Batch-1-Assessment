@@ -1,0 +1,25 @@
+{% extends 'Recruiter/dashboard.html' %}
+
+{% block content %}
+<section class="job-listings"> 
+    <h2>Latest Job Listings</h2> 
+    <ul> 
+        {% for job in jobs %}
+        <li> 
+            <h3>{{ job.title }}</h3> 
+            <p>Category: {{ job.category }}</p> 
+            <p>Openings: {{ job.openings }}</p> 
+            <p>Description: {{ job.description }}</p> 
+            <p>Skills: {{ job.skills_required }}</p> 
+
+            <!-- Edit Button -->
+            <a href="">Edit</a>
+            <a href="">Delete</a>
+
+
+            
+        </li>
+        {% endfor %}
+    </ul> 
+</section> 
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'JobSeeker/dashboard.html' %}
+
+{% block content %}
+<section class="job-listings"> 
+    <h2>Latest Job Listings</h2> 
+    <ul> 
+        
+        {% for i in  jobs %}
+            
+        <li> 
+            <h3>{{i.title}}</h3> 
+            <p>Category: {{i.category}}</p> 
+            <p>Openings :{{i.openings}}</p> 
+            <p>Description: {{i.description}}</p> 
+            <p>Skills: {{i.skills_required}}</p> 
+            <a href="#">Apply Now</a> 
+        </li>
+    
+            
+    {% endfor %}
+    </ul> 
+</section> 
+{% endblock %}
